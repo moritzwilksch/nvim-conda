@@ -1,0 +1,35 @@
+context:
+  version: 2024.12.01.0
+
+package:
+  name: nvim-moritz-config
+  version: ${{ version }}
+
+source:
+  - git: https://github.com/moritzwilksch/nvim.git
+    rev: d2a872e317258d74dea51280f5899489f8bb475b
+    target_directory: nvim-config
+
+  - url: https://github.com/folke/lazy.nvim/archive/refs/tags/v11.14.2.tar.gz 
+    sha256: d4bbcb8942608f7160f5be15e3f667373ba74aeacbd84417db1d6010543b1eef
+    target_directory: lazy-nvim
+
+  
+
+build:
+  number: 0
+  noarch: generic
+
+requirements:
+  build:
+  - sed
+  
+  host:
+  - lua
+
+  run:
+    - nvim
+    - lua
+
+# activationscript set VIMINIT="source /path/init.vim" to source the config
+
