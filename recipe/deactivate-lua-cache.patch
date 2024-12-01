@@ -1,0 +1,14 @@
+diff --git a/init.lua b/init.lua
+index cc9da39..dd8a31a 100644
+--- a/init.lua
++++ b/init.lua
+@@ -685,7 +685,8 @@ require('lazy').setup({
+             task = '📌',
+             lazy = '💤 '
+         }
+-    }
++    },
++    performance = { cache = { enabled = false, }}
+ })
+ 
+ -- The line beneath this is called `modeline`. See `:help modeline`
