@@ -17,10 +17,8 @@ sed -i "s|local lazypath = .*|local lazypath = \'$PREFIX/share/nvim/lazy/lazy.nv
 linenum=$(grep -n "performance = { cache = { enabled = false, }}" $PREFIX/share/nvim/init.lua | cut -d ":" -f 1)
 sed -i "${linenum}s/"'$'"/,/;${linenum}a     root = '$PREFIX/lazy'" $PREFIX/share/nvim/init.lua
 
-nvim -u $PREFIX/share/nvim/init.lua --headless  "+Lazy! sync" "+qa"
-
-
-# \
-#                      "+TSInstall! python toml yaml sql bash c lua markdown vim vimdoc" \
-#                      "+TSUpdatSync!" \
-#                      "+qa"
+nvim -u $PREFIX/share/nvim/init.lua --headless \
+    "+Lazy! sync" "+qa" \
+    "+TSInstall! python toml yaml sql bash c lua markdown vim vimdoc" \
+    "+TSUpdatSync!" \
+    "+qa"

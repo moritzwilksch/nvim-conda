@@ -13,12 +13,9 @@ source:
       # https://github.com/neovim/neovim/issues/29372#issuecomment-2436586458
       - deactivate-lua-cache.patch
 
-  - url: https://github.com/folke/lazy.nvim/archive/refs/tags/v11.14.2.tar.gz 
+  - url: https://github.com/folke/lazy.nvim/archive/refs/tags/v11.14.2.tar.gz
     sha256: d4bbcb8942608f7160f5be15e3f667373ba74aeacbd84417db1d6010543b1eef
     target_directory: lazy-nvim
-
-
-  
 
 build:
   number: 0
@@ -26,14 +23,19 @@ build:
 
 requirements:
   build:
-  - sed
-  
+    - sed
+
   host:
-  - lua
+    - lua
 
   run:
     - nvim
     - lua
+
+tests:
+  - package_contents:
+      files:
+        - lazy/nvim-treesitter/parser/python.so # check that the treesitter parser has been built
 
 # activationscript set VIMINIT="source /path/init.vim" to source the config
 
