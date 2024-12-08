@@ -22,3 +22,10 @@ nvim -u $PREFIX/share/nvim/init.lua --headless \
     "+TSInstall! python toml yaml sql bash c lua markdown vim vimdoc" \
     "+TSUpdatSync!" \
     "+qa"
+
+# the TS install is sometimes a bit wonky (async?)
+sleep 5
+
+# write activation script
+mkdir -p $PREFIX/etc/conda/activate.d
+echo "export VIMINIT='source $PREFIX/share/nvim/init.lua'" > $PREFIX/etc/conda/activate.d/010-set-viminit.sh

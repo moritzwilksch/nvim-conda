@@ -37,5 +37,7 @@ tests:
       files:
         - lazy/nvim-treesitter/parser/python.so # check that the treesitter parser has been built
 
-# activationscript set VIMINIT="source /path/init.vim" to source the config
+  - script:
+      - echo $VIMINIT
+
 
